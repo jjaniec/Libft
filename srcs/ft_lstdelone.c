@@ -1,23 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/09 10:19:43 by jjaniec           #+#    #+#             */
-/*   Updated: 2017/11/10 13:55:20 by jjaniec          ###   ########.fr       */
+/*   Created: 2017/11/15 19:31:55 by jjaniec           #+#    #+#             */
+/*   Updated: 2017/11/15 20:01:11 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <strings.h>
+#include "../libft.h"
 
-size_t	ft_strlen(const char *s)
+void	 ft_lstdelone(t_list **alst, void (*del)(void *, size_t))
 {
-	size_t		i;
-
-	i = -1;
-	while (s[++i])
-		;
-	return (i);
+	(*del)((void *)(*alst)->content, (size_t)(*alst)->content_size);
+	free(*alst);
+	(*alst) = NULL;
 }

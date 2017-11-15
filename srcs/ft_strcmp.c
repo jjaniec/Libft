@@ -1,23 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/09 10:19:43 by jjaniec           #+#    #+#             */
-/*   Updated: 2017/11/10 13:55:20 by jjaniec          ###   ########.fr       */
+/*   Created: 2017/11/06 16:19:52 by jjaniec           #+#    #+#             */
+/*   Updated: 2017/11/13 12:32:48 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <strings.h>
-
-size_t	ft_strlen(const char *s)
+int		ft_strcmp(char *s1, char *s2)
 {
-	size_t		i;
+	int		i;
 
-	i = -1;
-	while (s[++i])
-		;
-	return (i);
+	i = 0;
+	while (s1[i] == s2[i] && s1[i] != '\0' && s2[i] != '\0')
+		i++;
+	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 }

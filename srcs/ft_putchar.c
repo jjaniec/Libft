@@ -1,23 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_putchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/09 10:19:43 by jjaniec           #+#    #+#             */
-/*   Updated: 2017/11/10 13:55:20 by jjaniec          ###   ########.fr       */
+/*   Created: 2017/11/11 16:16:06 by jjaniec           #+#    #+#             */
+/*   Updated: 2017/11/14 12:44:47 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <strings.h>
+#include <unistd.h>
 
-size_t	ft_strlen(const char *s)
+void	ft_putchar(char c)
 {
-	size_t		i;
+	unsigned long	d;
 
-	i = -1;
-	while (s[++i])
-		;
-	return (i);
+	d = (unsigned long)c;
+	write(1, &d, 1);
 }

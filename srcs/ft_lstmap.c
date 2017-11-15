@@ -1,23 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/09 10:19:43 by jjaniec           #+#    #+#             */
-/*   Updated: 2017/11/10 13:55:20 by jjaniec          ###   ########.fr       */
+/*   Created: 2017/11/15 20:57:46 by jjaniec           #+#    #+#             */
+/*   Updated: 2017/11/15 21:11:29 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <strings.h>
+#include "../libft.h"
 
-size_t	ft_strlen(const char *s)
+t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 {
-	size_t		i;
+	t_list	*list;
+	t_list	*a;
 
-	i = -1;
-	while (s[++i])
-		;
-	return (i);
+	a = list;
+	while (lst != NULL)
+	{
+		list = (t_list *)malloc(sizeof(t_list));
+		list = (*f)(lst);
+		lst = lst->next;
+		list = list->next;
+	}
+	return (a);
 }

@@ -1,24 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.main.c                                   :+:      :+:    :+:   */
+/*   ft_strnequ.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/08 19:34:48 by jjaniec           #+#    #+#             */
-/*   Updated: 2017/11/09 10:19:15 by jjaniec          ###   ########.fr       */
+/*   Created: 2017/11/11 17:49:19 by jjaniec           #+#    #+#             */
+/*   Updated: 2017/11/11 18:44:54 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <strings.h>
-#include <stdio.h>
 
-int		ft_memcmp(const void *s1, const void *s2, size_t n);
-
-int		main(int ac, char **av)
+int		ft_strnequ(char const *s1, char const *s2, size_t n)
 {
-	char	 tab[5] = "LOLZL";
-	char	tab2[5] = "LOLOL";
+	size_t	i;
 
-	printf("%d", ft_memcmp(av[1], av[2], 5));
+	i = 0;
+	if (!(s1) || !(s2))
+		return ((int)NULL);
+	while (s1[i] == s2[i] && s1[i] != '\0' && s2[i] != '\0' && i < (n - 1))
+		i++;
+	return ((s1[i] == s2[i]) ? (1) : (0));
 }

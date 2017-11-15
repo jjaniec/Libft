@@ -1,23 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/09 10:19:43 by jjaniec           #+#    #+#             */
-/*   Updated: 2017/11/10 13:55:20 by jjaniec          ###   ########.fr       */
+/*   Created: 2017/11/11 16:16:49 by jjaniec           #+#    #+#             */
+/*   Updated: 2017/11/11 18:34:21 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <strings.h>
+#include <unistd.h>
 
-size_t	ft_strlen(const char *s)
+void	ft_putstr(char const *s)
 {
-	size_t		i;
+	int		i;
 
 	i = -1;
-	while (s[++i])
-		;
-	return (i);
+	if (s)
+	{
+		while (s[++i] != '\0')
+			write(1, &s[i], 1);
+	}
 }

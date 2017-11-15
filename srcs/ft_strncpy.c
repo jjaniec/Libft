@@ -1,23 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/09 10:19:43 by jjaniec           #+#    #+#             */
-/*   Updated: 2017/11/10 13:55:20 by jjaniec          ###   ########.fr       */
+/*   Created: 2017/11/09 10:27:05 by jjaniec           #+#    #+#             */
+/*   Updated: 2017/11/13 16:48:31 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <strings.h>
+#include <stdio.h>
+#include <unistd.h>
 
-size_t	ft_strlen(const char *s)
+char	*ft_strncpy(char *dst, const char *src, size_t len)
 {
 	size_t		i;
 
-	i = -1;
-	while (s[++i])
-		;
-	return (i);
+	i = 0;
+	while (i < len && src[i] != '\0')
+	{
+		dst[i] = (unsigned char)src[i];
+		i++;
+	}
+	while (i < len)
+	{
+		dst[i] = '\0';
+		i++;
+	}
+	return (dst);
 }

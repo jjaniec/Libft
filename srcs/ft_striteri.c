@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/09 10:19:43 by jjaniec           #+#    #+#             */
-/*   Updated: 2017/11/10 13:55:20 by jjaniec          ###   ########.fr       */
+/*   Created: 2017/11/10 13:02:38 by jjaniec           #+#    #+#             */
+/*   Updated: 2017/11/14 19:57:41 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <strings.h>
-
-size_t	ft_strlen(const char *s)
+void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
-	size_t		i;
+	unsigned int	i;
 
 	i = -1;
-	while (s[++i])
-		;
-	return (i);
+	if (s)
+	{
+		while (s[++i] != '\0')
+			(*f)(i, &s[i]);
+	}
 }

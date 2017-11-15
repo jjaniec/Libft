@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/09 10:19:43 by jjaniec           #+#    #+#             */
-/*   Updated: 2017/11/10 13:55:20 by jjaniec          ###   ########.fr       */
+/*   Created: 2017/11/09 12:50:04 by jjaniec           #+#    #+#             */
+/*   Updated: 2017/11/11 17:02:46 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <strings.h>
 
-size_t	ft_strlen(const char *s)
+char	*ft_strchr(const char *s, int c)
 {
-	size_t		i;
+	int		i;
 
 	i = -1;
-	while (s[++i])
+	while (s[++i] != (char)c && s[i])
 		;
-	return (i);
+	return ((s[i] == (char)c) ? ((char *)&s[i]) : (NULL));
 }

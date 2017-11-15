@@ -1,23 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strequ.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/09 10:19:43 by jjaniec           #+#    #+#             */
-/*   Updated: 2017/11/10 13:55:20 by jjaniec          ###   ########.fr       */
+/*   Created: 2017/11/10 14:08:57 by jjaniec           #+#    #+#             */
+/*   Updated: 2017/11/11 18:44:12 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <strings.h>
 
-size_t	ft_strlen(const char *s)
+int		ft_strequ(char const *s1, char const *s2)
 {
-	size_t		i;
+	int		i;
 
-	i = -1;
-	while (s[++i])
-		;
-	return (i);
+	i = 0;
+	if (!(s1) || !(s2))
+		return ((int)NULL);
+	while (s1[i] == s2[i] && s1[i] != '\0' && s2[i] != '\0')
+		i++;
+	return ((s1[i] == s2[i]) ? (1) : (0));
 }

@@ -1,23 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/09 10:19:43 by jjaniec           #+#    #+#             */
-/*   Updated: 2017/11/10 13:55:20 by jjaniec          ###   ########.fr       */
+/*   Created: 2017/11/13 18:55:06 by jjaniec           #+#    #+#             */
+/*   Updated: 2017/11/15 12:31:57 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <strings.h>
+#include <unistd.h>
+#include <stdio.h>
 
-size_t	ft_strlen(const char *s)
+void	ft_putchar(char c);
+
+void	ft_putnbr(int n)
 {
-	size_t		i;
-
-	i = -1;
-	while (s[++i])
-		;
-	return (i);
+	if (n == -2147483648)
+	{
+		ft_putchar('2');
+		n = 147483648;
+	}
+	if (n < 0)
+	{
+		write(1, "-", 1);
+		n = -n;
+	}
+	if (n < 10)
+		ft_putchar(n + '0');
+	if (n >= 10)
+	{
+		ft_putnbr(n / 10);
+		ft_putchar(n % 10 + '0');
+	}
 }

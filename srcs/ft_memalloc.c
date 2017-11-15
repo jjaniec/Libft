@@ -1,23 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_memalloc.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/09 10:19:43 by jjaniec           #+#    #+#             */
-/*   Updated: 2017/11/10 13:55:20 by jjaniec          ###   ########.fr       */
+/*   Created: 2017/11/10 10:59:58 by jjaniec           #+#    #+#             */
+/*   Updated: 2017/11/14 19:54:39 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <strings.h>
+#include <stdlib.h>
 
-size_t	ft_strlen(const char *s)
+void	*ft_memalloc(size_t size)
 {
-	size_t		i;
+	char	*a;
+	size_t	i;
 
 	i = -1;
-	while (s[++i])
-		;
-	return (i);
+	if (!(a = (char *)malloc(size)))
+		return (NULL);
+	while (++i != size)
+		*((char *)a + i) = 0;
+	return (a);
 }

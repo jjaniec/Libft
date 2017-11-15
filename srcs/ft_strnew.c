@@ -1,23 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/09 10:19:43 by jjaniec           #+#    #+#             */
-/*   Updated: 2017/11/10 13:55:20 by jjaniec          ###   ########.fr       */
+/*   Created: 2017/11/10 11:37:23 by jjaniec           #+#    #+#             */
+/*   Updated: 2017/11/11 20:15:43 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <strings.h>
+#include <stdlib.h>
 
-size_t	ft_strlen(const char *s)
+char	*ft_strnew(size_t size)
 {
-	size_t		i;
+	char	*str;
+	size_t	i;
 
 	i = -1;
-	while (s[++i])
-		;
-	return (i);
+	if (!(str = (char *)malloc(sizeof(char) * size + 1)))
+		return (NULL);
+	while (++i != size + 1)
+		str[i] = 0;
+	return (str);
 }

@@ -1,23 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   strsub.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/09 10:19:43 by jjaniec           #+#    #+#             */
-/*   Updated: 2017/11/10 13:55:20 by jjaniec          ###   ########.fr       */
+/*   Created: 2017/11/10 14:20:51 by jjaniec           #+#    #+#             */
+/*   Updated: 2017/11/11 18:41:36 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <strings.h>
 
-size_t	ft_strlen(const char *s)
+char	*ft_strnew(size_t size);
+
+char	*ft_strsub(char const *s, unsigned int start, size_t len)
 {
-	size_t		i;
+	char	*ns;
+	size_t	i;
 
 	i = -1;
-	while (s[++i])
-		;
-	return (i);
+	if (!(ns = ft_strnew(len)) || !(s))
+		return (NULL);
+	while (++i != len)
+	{
+		ns[i] = s[(size_t)start];
+		start++;
+	}
+	ns[i] = '\0';
+	return (ns);
 }

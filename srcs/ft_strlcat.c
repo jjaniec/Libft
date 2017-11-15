@@ -1,27 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/08 19:18:06 by jjaniec           #+#    #+#             */
-/*   Updated: 2017/11/15 15:43:51 by jjaniec          ###   ########.fr       */
+/*   Created: 2017/11/09 11:52:26 by jjaniec           #+#    #+#             */
+/*   Updated: 2017/11/15 18:25:29 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <strings.h>
+#include <unistd.h>
 
-void	*ft_memchr(const void *s, int c, size_t n)
+int		ft_strlen(char *str);
+
+char	*ft_strncat(char *restrict s1, const char *restrict s2, size_t n);
+
+size_t	ft_strlcat(char *restrict dst, const char *restrict src, size_t size)
 {
-	size_t	i;
-
-	i = 0;
-	while (i < n)
+	if (size >= (size_t)ft_strlen((char *)dst))
 	{
-		if (*((unsigned char *)s + i) == (unsigned char)c)
-			return ((unsigned char *)s + i);
-		i++;
+		ft_strncat(dst, src, size - (size_t)ft_strlen((char *)dst - 1));
+		return ((size_t)ft_strlen((char *)dst) + (size_t)ft_strlen((char *)src));
 	}
-	return (NULL);
+	return (size + (size_t)ft_strlen((char *)src));
 }

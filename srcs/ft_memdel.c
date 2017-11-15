@@ -1,23 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_memdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/09 10:19:43 by jjaniec           #+#    #+#             */
-/*   Updated: 2017/11/10 13:55:20 by jjaniec          ###   ########.fr       */
+/*   Created: 2017/11/10 11:30:43 by jjaniec           #+#    #+#             */
+/*   Updated: 2017/11/11 18:29:12 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <strings.h>
+#include <stdlib.h>
 
-size_t	ft_strlen(const char *s)
+void	ft_memdel(void **ap)
 {
-	size_t		i;
-
-	i = -1;
-	while (s[++i])
-		;
-	return (i);
+	if (ap)
+	{
+		free(*ap);
+		*ap = NULL;
+	}
 }

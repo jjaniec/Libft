@@ -1,22 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   strcat.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/08 18:00:32 by jjaniec           #+#    #+#             */
-/*   Updated: 2017/11/08 18:50:40 by jjaniec          ###   ########.fr       */
+/*   Created: 2017/11/09 11:20:42 by jjaniec           #+#    #+#             */
+/*   Updated: 2017/11/09 11:45:28 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <strings.h>
+#include <unistd.h>
+#include <stdio.h>
 
-int	 main()
+char	*ft_strcat(char *restrict s1, const char *restrict s2)
 {
-	char tab[5] = "abcde";
-	char tab2[5] = "zwcrr";
+	int		i;
+	int		j;
 
-	ft_memccpy(tab, tab2, 'c', 5);
-	printf("%s", tab);
+	i = -1;
+	j = -1;
+	while (s1[++i] != '\0')
+		;
+	while (s2[++j] != '\0')
+		s1[i++] = s2[j];
+	s1[i] = '\0';
+	return (s1);
 }

@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/09 10:19:43 by jjaniec           #+#    #+#             */
-/*   Updated: 2017/11/10 13:55:20 by jjaniec          ###   ########.fr       */
+/*   Created: 2017/11/11 16:26:04 by jjaniec           #+#    #+#             */
+/*   Updated: 2017/11/11 17:01:02 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <strings.h>
+#include <unistd.h>
 
-size_t	ft_strlen(const char *s)
+void	ft_putendl_fd(char const *s, int fd)
 {
-	size_t		i;
+	int		i;
 
 	i = -1;
-	while (s[++i])
-		;
-	return (i);
+	while (s[++i] != '\0')
+		write(fd, &s[i], 1);
+	write(fd, "\n", 1);
 }

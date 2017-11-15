@@ -1,23 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/09 10:19:43 by jjaniec           #+#    #+#             */
-/*   Updated: 2017/11/10 13:55:20 by jjaniec          ###   ########.fr       */
+/*   Created: 2017/11/13 11:57:03 by jjaniec           #+#    #+#             */
+/*   Updated: 2017/11/15 17:16:34 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <strings.h>
-
-size_t	ft_strlen(const char *s)
+int		ft_atoi(const char *str)
 {
-	size_t		i;
+	long long	rslt;
+	int			i;
+	int			j;
 
-	i = -1;
-	while (s[++i])
-		;
-	return (i);
+	i = 0;
+	j = 0;
+	rslt = 0;
+	while (str[i] == '\n' || str[i] == '\t' || str[i] == '\r' || \
+			str[i] == '\v' || str[i] == '\f' || str[i] == ' ')
+		i++;
+	if (str[i] == '-' || str[i] == '+')
+		j = i++;
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		rslt *= 10;
+		rslt += str[i] - '0';
+		i++;
+	}
+	return ((str[j] == '-') ? (-rslt) : (rslt));
 }

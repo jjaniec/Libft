@@ -1,26 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/08 19:18:06 by jjaniec           #+#    #+#             */
-/*   Updated: 2017/11/15 15:43:51 by jjaniec          ###   ########.fr       */
+/*   Created: 2017/11/14 14:56:15 by jjaniec           #+#    #+#             */
+/*   Updated: 2017/11/14 20:03:16 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <strings.h>
 
-void	*ft_memchr(const void *s, int c, size_t n)
+char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
-	size_t	i;
+	int		i;
+	int		j;
+	int		a;
 
 	i = 0;
-	while (i < n)
+	a = 0;
+	if (needle[0] == '\0')
+		return ((char *)haystack);
+	while (haystack[i] != '\0' && (i + a) < (int)len)
 	{
-		if (*((unsigned char *)s + i) == (unsigned char)c)
-			return ((unsigned char *)s + i);
+		a = 0;
+		j = 0;
+		if (haystack[i] == needle[j])
+		{
+			a = i;
+			while (haystack[a++] == needle[j] && needle[j] != '\0')
+				j++;
+			if (needle[j] == '\0')
+				return ((char *)&haystack[i]);
+		}
 		i++;
 	}
 	return (NULL);

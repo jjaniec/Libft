@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/08 13:34:06 by jjaniec           #+#    #+#             */
-/*   Updated: 2017/11/08 17:36:37 by jjaniec          ###   ########.fr       */
+/*   Updated: 2017/11/14 19:56:41 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,4 @@ void	*ft_memset(void *b, int c, size_t len)
 	while (++i < len)
 		*((char *)b + i) = (unsigned char)c;
 	return (b);
-
 }
