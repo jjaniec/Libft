@@ -1,29 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstmap.c                                        :+:      :+:    :+:   */
+/*   ft_lstdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/15 20:57:46 by jjaniec           #+#    #+#             */
-/*   Updated: 2017/11/16 13:36:26 by jjaniec          ###   ########.fr       */
+/*   Created: 2017/11/16 12:13:56 by jjaniec           #+#    #+#             */
+/*   Updated: 2017/11/16 13:40:19 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
+#include <stdio.h>
+#include <stdlib.h>
 
-t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
+void	ft_lstdelone(t_list **alst, void (*del)(void *, size_t));
+
+void	ft_lstdel(t_list **alst, void (*del)(void *, size_t))
 {
-	t_list	*list;
-	t_list	*a;
+	t_list	*nxt;
+	t_list	*cur;
 
-	a = lst;
-	while (lst != NULL)
+	cur = *alst;
+	nxt = *alst;
+	while (nxt != NULL)
 	{
-		list = (t_list *)malloc(sizeof(t_list));
-		list = (*f)(lst);
-		lst = lst->next;
-		list = list->next;
+		nxt = cur->next;
+		ft_lstdelone(&cur, del);
+		free(cur);
+		cur = nxt;
 	}
-	return (a);
+	*alst = NULL;
 }

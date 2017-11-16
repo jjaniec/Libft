@@ -6,7 +6,7 @@
 #    By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/11 16:33:09 by jjaniec           #+#    #+#              #
-#    Updated: 2017/11/15 18:06:32 by jjaniec          ###   ########.fr        #
+#    Updated: 2017/11/16 13:13:20 by jjaniec          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,12 @@ SRC_NAME = ft_atoi.c \
 		   ft_isdigit.c \
 		   ft_isprint.c \
 		   ft_itoa.c \
+		   ft_lstadd.c \
+		   ft_lstdel.c \
+		   ft_lstdelone.c \
+		   ft_lstiter.c \
+		   ft_lstmap.c \
+		   ft_lstnew.c \
 		   ft_memalloc.c \
 		   ft_memccpy.c \
 		   ft_memchr.c \
