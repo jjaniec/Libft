@@ -10,8 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
-SRC_PATH = ./srcs/
-SRC_NAME = ft_atoi.c \
+SRC_NAMES = ft_atoi.c \
 		   ft_bzero.c \
 		   ft_isalnum.c \
 		   ft_isalpha.c \
@@ -49,7 +48,6 @@ SRC_NAME = ft_atoi.c \
 		   ft_strcpy.c \
 		   ft_strdel.c \
 		   ft_strdup.c \
-		   ft_strequ.c \
 		   ft_striter.c \
 		   ft_striteri.c \
 		   ft_strjoin.c \
@@ -60,7 +58,6 @@ SRC_NAME = ft_atoi.c \
 		   ft_strncat.c \
 		   ft_strncmp.c \
 		   ft_strncpy.c \
-		   ft_strnequ.c \
 		   ft_strnew.c \
 		   ft_strnstr.c \
 		   ft_strrchr.c \
@@ -69,31 +66,40 @@ SRC_NAME = ft_atoi.c \
 		   ft_strtrim.c \
 		   ft_tolower.c \
 		   ft_toupper.c
-
-OBJ_PATH = obj
-OBJ_NAME = $(SRC_NAME:.c=.o)
-LIB_NAME = libft.a
-LIB_OBJ = libft.o
-INC_PATH = -Iincludes
+OBJS = $(SRC_NAMES:.c=.o)
+NAME = libft.a
 CC = gcc
 CFLAGS = -Wall -Werror -Wextra
-OBJ_PATH = ./objs/
+CFLAGS_SHARED = -Wall -Werror -Wextra -shared -fPIC
+OBJ_PATH = ./
+SRC_PATH = ./srcs/
 
-all: $(LIB_OBJ)
-	ar r $(LIB_NAME) ./*.o libft.h 2> /dev/null || true
-	ranlib $(LIB_NAME)
-	mv ./*.o $(OBJ_PATH) 2> /dev/null || true
+all: $(NAME)
 
-$(LIB_OBJ):
+$(NAME): $(OBJS) $(OBJ_PATH)
+	ar rcs $(NAME) $(addprefix $(OBJ_PATH),$(OBJS)) libft.h
+	ranlib $(NAME)
+
+$(OBJ_PATH): $(OBJS)
 	mkdir $(OBJ_PATH) 2> /dev/null || true
-	cd $(SRC_PATH) && $(CC) $(CFLAGS) -c $(SRC_NAME) $(INC_PATH)
-	cd $(SRC_PATH) && mv *.o ..
+	mv ./*.o $(OBJ_PATH)
+
+$(OBJS): $(SRC_NAMES)
+	$(CC) $(CFLAGS) -I$(SRC_PATH) -c $(SRC_NAMES)
 
 clean:
-	rm -rf $(OBJ_PATH) 2> /dev/null || true
+	rm -rf $(addprefix $(OBJ_PATH),$(OBJS)) 2> /dev/null || true
+	rm -f $(SRC_NAMES)
+
+so: $(SRC_NAMES)
+	$(CC) $(CFLAGS_SHARED) $(SRC_NAMES) -I$(SRC_PATH) -o libft.so
+
+$(SRC_NAMES):
+	cp $(addprefix $(SRC_PATH),$(SRC_NAMES)) .
 
 fclean: clean
-	rm -rf $(LIB_NAME) 2> /dev/null || true
-	rm a.out 2> /dev/null || true
+	rm -rf $(NAME) $(NAME:.a=.so) 2> /dev/null || true
 
 re: fclean all
+
+.PHONY: clean fclean all re
