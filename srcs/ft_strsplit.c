@@ -14,10 +14,11 @@
 #include <strings.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include "../libft.h"
 
 char	*ft_strsub(char const *s, unsigned int start, size_t len);
 
-int		ft_strcmp(char *s1, char *s2);
+int		ft_strcmp(const char *s1, const char *s2);
 
 int		ft_strsplit_s_size(char const *s, char c, int i)
 {
@@ -72,7 +73,8 @@ char	**ft_strsplit_filltabs(char const *s, char c, char **tab)
 
 	j = 0;
 	i2 = 0;
-	while (s[i2] != '\0' && j < ft_strsplit_tab_nb(s, c))
+	j2 = 0;
+	while (s[i2] != '\0' && j < ft_strsplit_tab_nb(s, c) && j2 > -1) //copilateur linux
 	{
 		j2 = 0;
 		while (s[i2] == c)
