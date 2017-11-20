@@ -20,6 +20,19 @@ char	*ft_strsub(char const *s, unsigned int start, size_t len);
 
 int		ft_strcmp(const char *s1, const char *s2);
 
+char	**ft_strsplit_ret_tab0wd(void)
+{
+	char	**tab0words;
+
+	if (!(tab0words = (char **)malloc(sizeof(char *))))
+		return (NULL);
+	if (!(tab0words[0] = (char *)malloc(sizeof(char) * 2)))
+		return (NULL);
+	tab0words[0][0] = 0;
+	tab0words[0][1] = 0;
+	return (tab0words);
+}
+
 int		ft_strsplit_s_size(char const *s, char c, int i)
 {
 	int		cunt;
@@ -100,7 +113,7 @@ char	**ft_strsplit(char const *s, char c)
 	int		tabs;
 
 	if (!(s) || s[0] == '\0')
-		exit(0);
+		return ((!(s)) ? (NULL) : (ft_strsplit_ret_tab0wd()));
 	tabs = ft_strsplit_tab_nb(s, c);
 	if (!(tab = (char **)malloc(sizeof(char) * tabs + 1)))
 		return (NULL);
