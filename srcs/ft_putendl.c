@@ -6,13 +6,11 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/11 16:18:58 by jjaniec           #+#    #+#             */
-/*   Updated: 2017/11/13 15:42:37 by jjaniec          ###   ########.fr       */
+/*   Updated: 2017/11/20 20:39:25 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void	ft_putchar(char c);
+#include "../libft.h"
 
 void	ft_putendl(char const *s)
 {

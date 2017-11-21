@@ -6,13 +6,11 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/09 11:52:26 by jjaniec           #+#    #+#             */
-/*   Updated: 2017/11/16 20:22:14 by jjaniec          ###   ########.fr       */
+/*   Updated: 2017/11/20 20:36:54 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
-
-size_t	ft_strlen(const char *s);
 
 size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {

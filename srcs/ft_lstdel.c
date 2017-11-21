@@ -6,15 +6,11 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/16 12:13:56 by jjaniec           #+#    #+#             */
-/*   Updated: 2017/11/16 13:40:19 by jjaniec          ###   ########.fr       */
+/*   Updated: 2017/11/20 20:41:16 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
-#include <stdio.h>
-#include <stdlib.h>
-
-void	ft_lstdelone(t_list **alst, void (*del)(void *, size_t));
 
 void	ft_lstdel(t_list **alst, void (*del)(void *, size_t))
 {

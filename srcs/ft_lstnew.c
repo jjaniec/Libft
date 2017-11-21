@@ -6,16 +6,11 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/15 18:49:40 by jjaniec           #+#    #+#             */
-/*   Updated: 2017/11/16 13:28:13 by jjaniec          ###   ########.fr       */
+/*   Updated: 2017/11/20 20:41:25 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
-#include <stdlib.h>
-#include <strings.h>
-#include <unistd.h>
-
-void	*ft_memcpy(void *restrict dst, const void *restrict src, size_t n);
 
 t_list	*ft_lstnew(void const *content, size_t content_size)
 {

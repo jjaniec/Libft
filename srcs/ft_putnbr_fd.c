@@ -6,13 +6,11 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/13 19:38:05 by jjaniec           #+#    #+#             */
-/*   Updated: 2017/11/15 12:32:48 by jjaniec          ###   ########.fr       */
+/*   Updated: 2017/11/20 20:38:32 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void	ft_putchar_fd(char c, int fd);
+#include "../libft.h"
 
 void	ft_putnbr_fd(int n, int fd)
 {

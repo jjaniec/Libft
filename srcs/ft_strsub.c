@@ -6,14 +6,11 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/10 14:20:51 by jjaniec           #+#    #+#             */
-/*   Updated: 2017/11/11 18:41:36 by jjaniec          ###   ########.fr       */
+/*   Updated: 2017/11/20 20:31:39 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <strings.h>
 #include "../libft.h"
-
-char	*ft_strnew(size_t size);
 
 char	*ft_strsub(char const *s, unsigned int start, size_t len)
 {

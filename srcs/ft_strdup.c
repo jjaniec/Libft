@@ -6,15 +6,11 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/09 10:22:15 by jjaniec           #+#    #+#             */
-/*   Updated: 2017/11/15 21:12:02 by jjaniec          ###   ########.fr       */
+/*   Updated: 2017/11/20 20:38:12 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-
-char	*ft_strnew(size_t size);
-
-char	*ft_strncpy(char *dst, const char *src, size_t len);
+#include "../libft.h"
 
 char	*ft_strdup(const char *s1)
 {

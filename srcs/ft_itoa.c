@@ -6,16 +6,13 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/13 12:50:16 by jjaniec           #+#    #+#             */
-/*   Updated: 2017/11/15 18:48:35 by jjaniec          ###   ########.fr       */
+/*   Updated: 2017/11/20 20:48:07 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <stdio.h>
+#include "../libft.h"
 
-char	*ft_strnew(size_t size);
-
-int		ft_itoa_slen(int n)
+static int	ft_itoa_slen(int n)
 {
 	int		i;
 
@@ -35,7 +32,7 @@ int		ft_itoa_slen(int n)
 	return (i);
 }
 
-char	*ft_itoa_min_int()
+static char	*ft_itoa_min_int(void)
 {
 	char	*s;
 
@@ -55,7 +52,7 @@ char	*ft_itoa_min_int()
 	return (s);
 }
 
-char	*ft_itoa(int n)
+char		*ft_itoa(int n)
 {
 	int		i;
 	char	*s;

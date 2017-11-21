@@ -6,13 +6,11 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/13 11:49:26 by jjaniec           #+#    #+#             */
-/*   Updated: 2017/11/13 12:39:41 by jjaniec          ###   ########.fr       */
+/*   Updated: 2017/11/20 20:35:43 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_isdigit(int c);
-
-int		ft_isalpha(int c);
+#include "../libft.h"
 
 int		ft_isalnum(int c)
 {

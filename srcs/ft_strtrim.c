@@ -6,26 +6,20 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/10 17:08:03 by jjaniec           #+#    #+#             */
-/*   Updated: 2017/11/15 12:53:45 by jjaniec          ###   ########.fr       */
+/*   Updated: 2017/11/21 13:03:28 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <strings.h>
-#include <stdio.h>
-#include <unistd.h>
+#include "../libft.h"
 
-char	*ft_strnew(size_t size);
-
-char	*ft_strsub(char const *s, unsigned int start, size_t len);
-
-int		ft_is_space(char c)
+static int		ft_is_space(char c)
 {
 	if (c == ' ' || c == '\t' || c == '\n')
 		return (1);
 	return (0);
 }
 
-int		ft_strlen_nospaces(char const *s)
+static int		ft_strlen_nospaces(char const *s)
 {
 	int		i;
 	int		j;
@@ -42,11 +36,13 @@ int		ft_strlen_nospaces(char const *s)
 	return (j);
 }
 
-char	*ft_strtrim(char const *s)
+char			*ft_strtrim(char const *s)
 {
 	int		i;
 	char	*s2;
 
+	if (s == NULL)
+		return (NULL);
 	i = 0;
 	while (ft_is_space(s[i]) == 1 && s[i] != '\0')
 		i++;
@@ -56,5 +52,8 @@ char	*ft_strtrim(char const *s)
 			return (NULL);
 		return (s2);
 	}
-	return ("");
+	if (!(s2 = (char *)malloc(sizeof(char))))
+		return (NULL);
+	s2[0] = '\0';
+	return (s2);
 }

@@ -6,34 +6,25 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/10 19:42:58 by jjaniec           #+#    #+#             */
-/*   Updated: 2017/11/15 17:26:04 by jjaniec          ###   ########.fr       */
+/*   Updated: 2017/11/20 20:49:05 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include <strings.h>
-#include <stdlib.h>
-#include <stdio.h>
 #include "../libft.h"
 
-char	*ft_strsub(char const *s, unsigned int start, size_t len);
-
-int		ft_strcmp(const char *s1, const char *s2);
-
-char	**ft_strsplit_ret_tab0wd(void)
+static char	**ft_strsplit_ret_tab0wd(void)
 {
 	char	**tab0words;
 
-	if (!(tab0words = (char **)malloc(sizeof(char *))))
+	if (!(tab0words = (char **)malloc(sizeof(char *) * 2)))
 		return (NULL);
-	if (!(tab0words[0] = (char *)malloc(sizeof(char) * 2)))
+	if (!(tab0words[0] = (char *)malloc(sizeof(char))))
 		return (NULL);
-	tab0words[0][0] = 0;
-	tab0words[0][1] = 0;
+	tab0words[0] = NULL;
 	return (tab0words);
 }
 
-int		ft_strsplit_s_size(char const *s, char c, int i)
+static int	ft_strsplit_s_size(char const *s, char c, int i)
 {
 	int		cunt;
 	int		j;
@@ -57,7 +48,7 @@ int		ft_strsplit_s_size(char const *s, char c, int i)
 	return (cunt);
 }
 
-int		ft_strsplit_tab_nb(char const *s, char c)
+static int	ft_strsplit_tab_nb(char const *s, char c)
 {
 	int		i;
 	int		cunt;
@@ -78,7 +69,7 @@ int		ft_strsplit_tab_nb(char const *s, char c)
 	return (cunt);
 }
 
-char	**ft_strsplit_filltabs(char const *s, char c, char **tab)
+static char	**ft_strsplit_filltabs(char const *s, char c, char **tab)
 {
 	int		i2;
 	int		j;
@@ -87,7 +78,7 @@ char	**ft_strsplit_filltabs(char const *s, char c, char **tab)
 	j = 0;
 	i2 = 0;
 	j2 = 0;
-	while (s[i2] != '\0' && j < ft_strsplit_tab_nb(s, c) && j2 > -1) //copilateur linux
+	while (s[i2] != '\0' && j < ft_strsplit_tab_nb(s, c) && j2 > -1)
 	{
 		j2 = 0;
 		while (s[i2] == c)
@@ -107,7 +98,7 @@ char	**ft_strsplit_filltabs(char const *s, char c, char **tab)
 	return (tab);
 }
 
-char	**ft_strsplit(char const *s, char c)
+char		**ft_strsplit(char const *s, char c)
 {
 	char	**tab;
 	int		tabs;
