@@ -6,12 +6,15 @@
 #    By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/11 16:33:09 by jjaniec           #+#    #+#              #
-#    Updated: 2017/11/16 13:13:20 by jjaniec          ###   ########.fr        #
+#    Updated: 2017/11/21 18:16:15 by jjaniec          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRC_NAMES = ft_atoi.c \
 		   ft_bzero.c \
+		   ft_display_file.c \
+		   ft_div_mod.c \
+		   ft_foreach.c \
 		   ft_isalnum.c \
 		   ft_isalpha.c \
 		   ft_isascii.c \
@@ -41,6 +44,8 @@ SRC_NAMES = ft_atoi.c \
 		   ft_strstr.c \
 		   ft_putstr.c \
 		   ft_putstr_fd.c \
+		   ft_range.c \
+		   ft_recursive_factorial.c \
 		   ft_strcat.c \
 		   ft_strchr.c \
 		   ft_strclr.c \
@@ -74,7 +79,7 @@ CC = gcc
 CFLAGS = -Wall -Werror -Wextra
 CFLAGS_SHARED = -Wall -Werror -Wextra -shared -fPIC
 OBJ_PATH = ./
-SRC_PATH = ./srcs/
+SRC_PATH = ./
 
 all: $(NAME)
 
@@ -84,20 +89,19 @@ $(NAME): $(OBJS) $(OBJ_PATH)
 
 $(OBJ_PATH): $(OBJS)
 	mkdir $(OBJ_PATH) 2> /dev/null || true
-	mv ./*.o $(OBJ_PATH)
+	mv ./*.o $(OBJ_PATH) 2> /dev/null || true
 
 $(OBJS): $(SRC_NAMES)
 	$(CC) $(CFLAGS) -I$(SRC_PATH) -c $(SRC_NAMES)
 
 clean:
 	rm -rf $(addprefix $(OBJ_PATH),$(OBJS)) 2> /dev/null || true
-	rm -f $(SRC_NAMES)
 
 so: $(SRC_NAMES)
 	$(CC) $(CFLAGS_SHARED) $(SRC_NAMES) -I$(SRC_PATH) -o libft.so
 
 $(SRC_NAMES):
-	cp $(addprefix $(SRC_PATH),$(SRC_NAMES)) .
+	cp $(addprefix $(SRC_PATH),$(SRC_NAMES)) . 2> /dev/null || true
 
 fclean: clean
 	rm -rf $(NAME) $(NAME:.a=.so) 2> /dev/null || true
