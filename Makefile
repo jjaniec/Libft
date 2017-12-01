@@ -6,7 +6,7 @@
 #    By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/11 16:33:09 by jjaniec           #+#    #+#              #
-#    Updated: 2017/11/21 18:16:15 by jjaniec          ###   ########.fr        #
+#    Updated: 2017/11/29 15:54:38 by jjaniec          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -54,6 +54,8 @@ SRC_NAMES = ft_atoi.c \
 		   ft_strdel.c \
 		   ft_strdup.c \
 		   ft_strequ.c \
+		   ft_strichr.c \
+		   ft_strichrr.c \
 		   ft_striter.c \
 		   ft_striteri.c \
 		   ft_strjoin.c \
@@ -78,14 +80,15 @@ NAME = libft.a
 CC = gcc
 CFLAGS = -Wall -Werror -Wextra
 CFLAGS_SHARED = -Wall -Werror -Wextra -shared -fPIC
-OBJ_PATH = ./
-SRC_PATH = ./
+OBJ_PATH = ./objs/
+SRC_PATH = ./srcs/
 
 all: $(NAME)
 
 $(NAME): $(OBJS) $(OBJ_PATH)
 	ar rcs $(NAME) $(addprefix $(OBJ_PATH),$(OBJS)) libft.h
 	ranlib $(NAME)
+	rm $(SRC_NAMES)
 
 $(OBJ_PATH): $(OBJS)
 	mkdir $(OBJ_PATH) 2> /dev/null || true
@@ -95,7 +98,7 @@ $(OBJS): $(SRC_NAMES)
 	$(CC) $(CFLAGS) -I$(SRC_PATH) -c $(SRC_NAMES)
 
 clean:
-	rm -rf $(addprefix $(OBJ_PATH),$(OBJS)) 2> /dev/null || true
+	rm -rf $(addprefix $(OBJ_PATH),$(OBJS)) ./*.c 2> /dev/null || true
 
 so: $(SRC_NAMES)
 	$(CC) $(CFLAGS_SHARED) $(SRC_NAMES) -I$(SRC_PATH) -o libft.so
