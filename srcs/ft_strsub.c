@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/10 14:20:51 by jjaniec           #+#    #+#             */
-/*   Updated: 2017/11/29 20:15:09 by jjaniec          ###   ########.fr       */
+/*   Updated: 2017/12/02 15:00:59 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ char	*ft_strsub(char const *s, unsigned int start, size_t len)
 	size_t	i;
 
 	i = -1;
-	//printf("\nsub : start : %u - len : %zu\n", start, len);
 	if (!(ns = ft_strnew(len)) || !(s))
 		return (NULL);
 	while (++i != len)
@@ -28,6 +27,5 @@ char	*ft_strsub(char const *s, unsigned int start, size_t len)
 		start++;
 	}
 	ns[i] = '\0';
-	//printf("strsub return : |%s|\n", ns);
 	return (ns);
 }
