@@ -1,0 +1,6 @@
+language: c
+compiler:
+    -gcc
+    -clang
+os: osx
+script: cd libft-unit-test && make && ./run_test
