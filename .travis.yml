@@ -2,7 +2,5 @@ language: c
 compiler:
     -gcc
     -clang
-os: 
-    -osx
-    -linux
+os: osx
 script: make -C libft-unit-test && cd libft-unit-test && ./run_test
