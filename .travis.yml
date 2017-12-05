@@ -3,4 +3,4 @@ compiler:
     -gcc
     -clang
 os: osx
-script: cd libft-unit-test && make && ./run_test
+script: make -C libft-unit-test && cd libft-unit-test && ./run_test
