@@ -2,5 +2,10 @@ language: c
 compiler:
     -gcc
     -clang
-os: osx
+os: 
+    - osx
+    - linux
+matrix:
+    allow_failures:
+        - os: linux
 script: make -C libft-unit-test && cd libft-unit-test && ./run_test
