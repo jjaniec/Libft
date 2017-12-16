@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/11 17:15:39 by jjaniec           #+#    #+#             */
-/*   Updated: 2017/11/29 15:52:40 by jjaniec          ###   ########.fr       */
+/*   Updated: 2017/12/16 17:42:52 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -155,5 +155,7 @@ t_list			*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 int				ft_strichr(const char *s, char c);
 
 int				ft_strichrr(const char *s, char c, int j);
+
+char			*ft_str_capitalize(char *s);
 
 #endif
