@@ -6,7 +6,7 @@
 #    By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/11 16:33:09 by jjaniec           #+#    #+#              #
-#    Updated: 2017/12/16 17:43:15 by jjaniec          ###   ########.fr        #
+#    Updated: 2017/12/16 17:47:23 by jjaniec          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -56,7 +56,6 @@ SRC_NAMES = ft_atoi.c \
 		   ft_strdup.c \
 		   ft_strequ.c \
 		   ft_strichr.c \
-		   ft_strichrr.c \
 		   ft_striter.c \
 		   ft_striteri.c \
 		   ft_strjoin.c \
