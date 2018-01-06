@@ -1,3 +1,1 @@
-# Libft
-
-[![Build Status](https://travis-ci.com/jjaniec/Libft.svg?token=vUjpUKrWHJiKAfUBFMHq&branch=master)](https://travis-ci.com/jjaniec/Libft)
+# Libft [![Build Status](https://travis-ci.org/jjaniec/libft.svg?branch=master)](https://travis-ci.org/jjaniec/libft)
