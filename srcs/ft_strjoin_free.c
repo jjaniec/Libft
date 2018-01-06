@@ -6,11 +6,11 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/27 18:16:34 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/04 14:35:47 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/06 13:27:54 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <fillit.h>
+#include "../libft.h"
 
 /*
 ** Return the Concatenation of 2 strings and free them to avoid memory leaks

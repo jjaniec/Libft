@@ -6,11 +6,11 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/28 15:16:18 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/06 13:16:17 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/06 13:27:33 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <fillit.h>
+#include "../libft.h"
 
 /*
 ** Append to ft_read_content's buffer, following of file descriptor, with a

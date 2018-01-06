@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/11 17:15:39 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/06 13:15:28 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/06 13:42:45 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,10 @@
 # include <stdlib.h>
 # include <fcntl.h>
 # include <stdio.h>
+
+# ifndef BUFF_SIZE
+#  define BUFF_SIZE 42
+# endif
 
 typedef struct	s_list
 {
@@ -156,7 +160,7 @@ int				ft_strichr(const char *s, char c);
 
 char			*ft_str_capitalize(char *s);
 
-char			*ft_read_content.c(int fd);
+char			*ft_read_content(int fd);
 
 char			*ft_strjoin_free(char *s1, char *s2);
 
