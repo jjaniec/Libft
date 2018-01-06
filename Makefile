@@ -6,7 +6,7 @@
 #    By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/11 16:33:09 by jjaniec           #+#    #+#              #
-#    Updated: 2017/12/16 17:47:23 by jjaniec          ###   ########.fr        #
+#    Updated: 2018/01/06 13:14:17 by jjaniec          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,6 +45,7 @@ SRC_NAMES = ft_atoi.c \
 		   ft_putstr.c \
 		   ft_putstr_fd.c \
 		   ft_range.c \
+		   ft_read_file.c \
 		   ft_recursive_factorial.c \
 		   ft_strcat.c \
 		   ft_str_capitalize.c \
@@ -59,6 +60,7 @@ SRC_NAMES = ft_atoi.c \
 		   ft_striter.c \
 		   ft_striteri.c \
 		   ft_strjoin.c \
+		   ft_strjoin_free.c \
 		   ft_strlcat.c \
 		   ft_strlen.c \
 		   ft_strmap.c \
