@@ -1,14 +1,20 @@
 language: c
-compiler:
-    - gcc
-    - clang
-os:
-    - osx
-    - linux
 before_install:
     - git clone https://github.com/alelievr/libft-unit-test.git
     - sed -i.bak "s#\.\.\/libft\$#\.\.\/\.#" libft-unit-test/Makefile
 matrix:
+    include:
+        - os: osx
+          compiler: gcc
+          env: CXX=gcc
+        - os: osx
+          compiler: clang
+          env: CXX=clang
     allow_failures:
         - os: linux
+          compiler: gcc
+          env: CXX=gcc
+        - os: linux
+          compiler: clang
+          env: CXX=clang
 script: make CC=$CXX -C libft-unit-test && cd libft-unit-test && ./run_test
