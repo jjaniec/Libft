@@ -87,20 +87,33 @@ SRC_PATH = ./srcs/
 SRCS = $(addprefix $(SRC_PATH),$(SRC_PATH))
 OBJS = $(addprefix $(OBJ_PATH),$(SRC_NAMES:.c=.o))
 
+define ui_line
+echo -n -e "\b=>"
+endef
+
 all: $(NAME)
 
-$(NAME): $(OBJS)
-	ar rcs $(NAME) $(OBJS)
+$(NAME): ui_ $(OBJS)
+	@echo -n -e "\n\n\tCreating libft.a ...\r"
+	@ar rcs $(NAME) $(OBJS) && echo -n -e "\033[K\tLibft.a created\n\n"
 
 $(OBJ_PATH)%.o : $(SRC_PATH)%.c
 	@mkdir $(OBJ_PATH) 2> /dev/null || true
-	$(CC) $(CFLAGS) -c $^ -o $@
+	@$(CC) $(CFLAGS) -c $^ -o $@ && $(call ui_line, $@)
+
+ui_begin:
+	@echo -n -e "\n\tCompiling libft sources\n\n"
+
+ui_: ui_begin
+	@echo -n -e "\t"
+	@printf ' %.0s' {1..68}
+	@echo -n -e " ]\r\t[ "
 
 so: $(SRC_NAMES)
 	$(CC) $(CFLAGS_SHARED) $(SRC_NAMES) -I$(SRC_PATH) -o libft.so
 
 clean:
-	rm -rf $(OBJ_PATH) 2> /dev/null || true
+	@rm -rf $(OBJ_PATH) 2> /dev/null || true
 
 fclean: clean
 	@rm -rf $(NAME) $(NAME:.a=.so) 2> /dev/null
