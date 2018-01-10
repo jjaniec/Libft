@@ -1,5 +1,10 @@
-for i in $(ls ./objs/*.o); do echo -n -e '=';done;
+srcs_count=$(ls ./srcs/*.c | wc -l)
+objs_count=$(ls ./objs/*.o | wc -l)
+
+if [ $objs_count -eq 1 ]; then echo -n -e "\nCompiling libft ...\n\n\r"; fi;
+echo -n -e "\033[K\t$1\t["
+for i in $(seq 1 $objs_count); do echo -n -e '='; done;
 echo -n -e ">"
-for j in $(seq 1 $(($(ls ./srcs/*.c | wc -l)-$(ls ./objs/*.o | wc -l)))); do echo -n -e ' '; done;
-echo -n -e "] - $(ls ./objs/*.o | wc -l)/$(ls ./srcs/*.c | wc -l)\r"
+for j in $(seq 1 $(($srcs_count-$objs_count))); do echo -n -e ' '; done;
+echo -n -e "] - $objs_count/$srcs_count\r"
 
