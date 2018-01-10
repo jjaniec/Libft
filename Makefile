@@ -77,39 +77,33 @@ SRC_NAMES = ft_atoi.c \
 		   ft_strtrim.c \
 		   ft_tolower.c \
 		   ft_toupper.c
-OBJS = $(SRC_NAMES:.c=.o)
+OBJS_NAMES = $(SRC_NAMES:.c=.o)
 NAME = libft.a
 CC = gcc
-CFLAGS = -Wall -Werror -Wextra
-CFLAGS_SHARED = -Wall -Werror -Wextra -shared -fPIC
+CFLAGS = -Wall -Werror -Wextra -I.
+CFLAGS_SHARED = -Wall -Werror -Wextra -I. -shared -fPIC
 OBJ_PATH = ./objs/
 SRC_PATH = ./srcs/
+SRCS = $(addprefix $(SRC_PATH),$(SRC_PATH))
+OBJS = $(addprefix $(OBJ_PATH),$(SRC_NAMES:.c=.o))
 
 all: $(NAME)
 
-$(NAME): $(OBJS) $(OBJ_PATH)
-	ar rcs $(NAME) $(addprefix $(OBJ_PATH),$(OBJS)) libft.h
-	ranlib $(NAME)
-	rm $(SRC_NAMES)
+$(NAME): $(OBJS)
+	ar rcs $(NAME) $(OBJS)
 
-$(OBJ_PATH): $(OBJS)
-	mkdir $(OBJ_PATH) 2> /dev/null || true
-	mv ./*.o $(OBJ_PATH) 2> /dev/null || true
-
-$(OBJS): $(SRC_NAMES)
-	$(CC) $(CFLAGS) -I$(SRC_PATH) -c $(SRC_NAMES)
-
-clean:
-	rm -rf $(addprefix $(OBJ_PATH),$(OBJS)) ./*.c 2> /dev/null || true
+$(OBJ_PATH)%.o : $(SRC_PATH)%.c
+	@mkdir $(OBJ_PATH) 2> /dev/null || true
+	$(CC) $(CFLAGS) -c $^ -o $@
 
 so: $(SRC_NAMES)
 	$(CC) $(CFLAGS_SHARED) $(SRC_NAMES) -I$(SRC_PATH) -o libft.so
 
-$(SRC_NAMES):
-	cp $(addprefix $(SRC_PATH),$(SRC_NAMES)) . 2> /dev/null || true
+clean:
+	rm -rf $(OBJ_PATH) 2> /dev/null || true
 
 fclean: clean
-	rm -rf $(NAME) $(NAME:.a=.so) 2> /dev/null || true
+	@rm -rf $(NAME) $(NAME:.a=.so) 2> /dev/null
 
 re: fclean all
 
