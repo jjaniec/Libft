@@ -1,0 +1,5 @@
+for i in $(ls ./objs/*.o); do echo -n -e '=';done;
+echo -n -e ">"
+for j in $(seq 1 $(($(ls ./srcs/*.c | wc -l)-$(ls ./objs/*.o | wc -l)))); do echo -n -e ' '; done;
+echo -n -e "] - $(ls ./objs/*.o | wc -l)/$(ls ./srcs/*.c | wc -l)\r"
+

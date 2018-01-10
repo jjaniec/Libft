@@ -86,9 +86,11 @@ OBJ_PATH = ./objs/
 SRC_PATH = ./srcs/
 SRCS = $(addprefix $(SRC_PATH),$(SRC_PATH))
 OBJS = $(addprefix $(OBJ_PATH),$(SRC_NAMES:.c=.o))
+STATS_BAR = ./.makefile_status
 
 define ui_line
-echo -n -e "\b=>"
+	echo -n -e '\033[K\t$(1)\t['
+	$(STATS_BAR) || true
 endef
 
 all: $(NAME)
@@ -99,15 +101,13 @@ $(NAME): ui_ $(OBJS)
 
 $(OBJ_PATH)%.o : $(SRC_PATH)%.c
 	@mkdir $(OBJ_PATH) 2> /dev/null || true
-	@$(CC) $(CFLAGS) -c $^ -o $@ && $(call ui_line, $@)
+	@$(CC) $(CFLAGS) -c $^ -o $@ && $(call ui_line, $@, $(shell ls $(OBJ_PATH)*.o 2> /dev/null | wc -l))
 
 ui_begin:
 	@echo -n -e "\n\tCompiling libft sources\n\n"
 
 ui_: ui_begin
 	@echo -n -e "\t"
-	@printf ' %.0s' {1..68}
-	@echo -n -e " ]\r\t[ "
 
 so: $(SRC_NAMES)
 	$(CC) $(CFLAGS_SHARED) $(SRC_NAMES) -I$(SRC_PATH) -o libft.so
@@ -120,4 +120,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: clean fclean all re
+.PHONY: clean fclean all re so ui_ ui_begin 
