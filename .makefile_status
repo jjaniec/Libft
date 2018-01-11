@@ -1,10 +1,24 @@
 srcs_count=$(ls ./srcs/*.c | wc -l)
 objs_count=$(ls ./objs/*.o | wc -l)
 
-if [ $objs_count -eq 1 ]; then echo -n -e "\nCompiling libft ...\n\n\r"; fi;
-echo -n -e "\033[K\t$1\t["
-for i in $(seq 1 $objs_count); do echo -n -e '='; done;
-echo -n -e ">"
-for j in $(seq 1 $(($srcs_count-$objs_count))); do echo -n -e ' '; done;
-echo -n -e "] - $objs_count/$srcs_count\r"
+bar_fill_char="="
+
+function star
+{
+    if [ $objs_count -ne $srcs_count ];
+    then
+        return "\e[93m]";
+    fi;
+    return "\e[92m]";
+}
+
+if [ $objs_count -eq 1 ]; then printf "\nCompiling libft ...\n\n\r"; fi;
+printf "\033[K["$star"*\e[97m]\t$1\t["
+for i in $(seq 1 $objs_count); do bar_fill_stats="$bar_fill_stats="; done;
+printf "$bar_fill_stats>" | lolcat -S 42
+if [ $objs_count -ne $srcs_count ];
+then
+    for j in $(seq 1 $(($srcs_count-$objs_count))); do printf ' '; done;
+fi;
+printf "] - $objs_count/$srcs_count\r"
 

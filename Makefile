@@ -6,7 +6,7 @@
 #    By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/11 16:33:09 by jjaniec           #+#    #+#              #
-#    Updated: 2018/01/06 13:27:02 by jjaniec          ###   ########.fr        #
+#    Updated: 2018/01/11 13:51:55 by jjaniec          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -95,8 +95,8 @@ endef
 all: $(NAME)
 
 $(NAME):$(OBJS)
-	@echo -n -e "\n\n\tCreating libft.a ...\r"
-	@ar rcs $(NAME) $(OBJS) && echo -n -e "\033[K\tLibft.a created\n\n"
+	@printf "\n\n\tCreating libft.a ...\r"
+	@ar rcs $(NAME) $(OBJS) && printf "\033[K\tLibft.a created\n\n"
 
 $(OBJ_PATH)%.o : $(SRC_PATH)%.c
 	@mkdir $(OBJ_PATH) 2> /dev/null || true
