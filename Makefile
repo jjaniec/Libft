@@ -6,7 +6,7 @@
 #    By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/11 16:33:09 by jjaniec           #+#    #+#              #
-#    Updated: 2018/01/11 13:51:55 by jjaniec          ###   ########.fr        #
+#    Updated: 2018/01/11 14:30:16 by jjaniec          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -96,7 +96,7 @@ all: $(NAME)
 
 $(NAME):$(OBJS)
 	@printf "\n\n\tCreating libft.a ...\r"
-	@ar rcs $(NAME) $(OBJS) && printf "\033[K\tLibft.a created\n\n"
+	@ar rcs $(NAME) $(OBJS)
 
 $(OBJ_PATH)%.o : $(SRC_PATH)%.c
 	@mkdir $(OBJ_PATH) 2> /dev/null || true

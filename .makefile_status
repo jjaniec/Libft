@@ -15,12 +15,18 @@ function star
 
 if [ $objs_count -eq 1 ]; then printf "\nCompiling libft ...\n\n\r"; fi;
 star
-printf "\t$1\t["
+printf "\t$1\t\t["
 for i in $(seq 1 $objs_count); do bar_fill_stats="$bar_fill_stats="; done;
-printf "$bar_fill_stats>" | lolcat -S 42
+command -v lolcat > /dev/null
+if [ $? -eq 0 ];
+then
+    printf "$bar_fill_stats>" | lolcat -S 42;
+else
+    printf "$bar_fill_stats>"
+fi;
+
 if [ $objs_count -ne $srcs_count ];
 then
     for j in $(seq 1 $(($srcs_count-$objs_count))); do printf ' '; done;
 fi;
 printf "] - $objs_count/$srcs_count\r"
-
