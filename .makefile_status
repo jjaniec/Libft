@@ -16,7 +16,7 @@ function star
 if [ $objs_count -eq 1 ]; then printf "\nCompiling libft ...\n\n\r"; fi;
 star
 printf "\t$1\t\t["
-for i in $(seq 1 $objs_count); do bar_fill_stats="$bar_fill_stats="; done;
+for i in $(seq 1 $objs_count); do bar_fill_stats="$bar_fill_stats$bar_fill_char"; done;
 command -v lolcat > /dev/null
 if [ $? -eq 0 ];
 then

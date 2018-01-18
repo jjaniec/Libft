@@ -6,20 +6,13 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/11 16:16:49 by jjaniec           #+#    #+#             */
-/*   Updated: 2017/11/11 18:34:21 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/18 14:53:58 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <libft.h>
 
 void	ft_putstr(char const *s)
 {
-	int		i;
-
-	i = -1;
-	if (s)
-	{
-		while (s[++i] != '\0')
-			write(1, &s[i], 1);
-	}
+    write(1, &s[0], ft_strlen(s));
 }

@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/27 18:16:34 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/06 13:27:54 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/18 14:54:17 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,7 @@ char	*ft_strjoin_free(char *s1, char *s2)
 		t[j++] = s2[i];
 	free((char *)s1);
 	free((char *)s2);
+    s1 = NULL;
+    s2 = NULL;
 	return (t);
 }
