@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/11 17:15:39 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/06 13:42:45 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/01/20 17:24:04 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <stdlib.h>
 # include <fcntl.h>
 # include <stdio.h>
+# include <stdarg.h>
 
 # ifndef BUFF_SIZE
 #  define BUFF_SIZE 42
@@ -163,5 +164,7 @@ char			*ft_str_capitalize(char *s);
 char			*ft_read_content(int fd);
 
 char			*ft_strjoin_free(char *s1, char *s2);
+
+char            *ft_strsub_free(char *s, unsigned int start, size_t len);
 
 #endif

@@ -6,7 +6,7 @@
 #    By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/11 16:33:09 by jjaniec           #+#    #+#              #
-#    Updated: 2018/01/11 14:30:16 by jjaniec          ###   ########.fr        #
+#    Updated: 2018/01/20 17:51:09 by jjaniec          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -66,6 +66,7 @@ SRC_NAMES = ft_atoi.c \
 		   ft_strmap.c \
 		   ft_strmapi.c \
 		   ft_strncat.c \
+		   ft_strnchr.c \
 		   ft_strncmp.c \
 		   ft_strncpy.c \
 		   ft_strnequ.c \
@@ -74,6 +75,7 @@ SRC_NAMES = ft_atoi.c \
 		   ft_strrchr.c \
 		   ft_strsplit.c \
 		   ft_strsub.c \
+		   ft_strsub_free.c \
 		   ft_strtrim.c \
 		   ft_tolower.c \
 		   ft_toupper.c
