@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/11 16:16:49 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/01/18 14:53:58 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/02/01 12:18:47 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 void	ft_putstr(char const *s)
 {
-    write(1, &s[0], ft_strlen(s));
+	write(1, &s[0], ft_strlen(s));
 }
