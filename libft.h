@@ -23,6 +23,10 @@
 #  define BUFF_SIZE 42
 # endif
 
+# if __STDC_VERSION__ < 199901L
+#  define restrict
+# endif
+
 typedef struct	s_list
 {
 	void			*content;
