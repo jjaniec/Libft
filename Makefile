@@ -6,7 +6,7 @@
 #    By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/11 16:33:09 by jjaniec           #+#    #+#              #
-#    Updated: 2018/01/20 17:51:09 by jjaniec          ###   ########.fr        #
+#    Updated: 2018/02/19 22:41:27 by jjaniec          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -82,8 +82,8 @@ SRC_NAMES = ft_atoi.c \
 OBJS_NAMES = $(SRC_NAMES:.c=.o)
 NAME = libft.a
 CC = gcc
-CFLAGS = -Wall -Werror -Wextra -I.
-CFLAGS_SHARED = -Wall -Werror -Wextra -I. -shared -fPIC -std=c99
+CFLAGS = -Wall -Werror -Wextra -I. -std=c99 -Wno-pointer-arith
+CFLAGS_SHARED = -Wall -Werror -Wextra -I. -shared -fPIC -std=c99 -Wno-pointer-arith
 OBJ_PATH = ./objs/
 SRC_PATH = ./srcs/
 SRCS = $(addprefix $(SRC_PATH),$(SRC_PATH))
@@ -105,7 +105,7 @@ $(OBJ_PATH)%.o : $(SRC_PATH)%.c
 	@$(CC) $(CFLAGS) -c $^ -o $@ && $(call ui_line, $@, $(shell ls $(OBJ_PATH)*.o 2> /dev/null | wc -l))
 
 $(NAME:.a=.so): $(addprefix $(SRC_PATH),$(SRC_NAMES))
-	@$(CC) $(CFLAGS_SHARED) -Wno-pointer-arith -pedantic $(addprefix $(SRC_PATH),*.c) -o libft.so
+	@$(CC) $(CFLAGS_SHARED) -pedantic $(addprefix $(SRC_PATH),*.c) -o libft.so
 
 so: $(NAME:.a=.so)
 
