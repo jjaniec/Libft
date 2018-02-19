@@ -26,4 +26,4 @@ matrix:
         - os: linux
           compiler: clang
           env: CXX=clang
-script: make CC=$CXX -C libft-unit-test; cd libft-unit-test; valgrind ./run_test; ./run_test
+script: make CC=$CXX -C libft-unit-test; cd libft-unit-test; cp ../libft.* .; valgrind ./run_test; ./run_test
