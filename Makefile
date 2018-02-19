@@ -83,7 +83,7 @@ OBJS_NAMES = $(SRC_NAMES:.c=.o)
 NAME = libft.a
 CC = gcc
 CFLAGS = -Wall -Werror -Wextra -I.
-CFLAGS_SHARED = -Wall -Werror -Wextra -I. -shared -fPIC
+CFLAGS_SHARED = -Wall -Werror -Wextra -I. -shared -fPIC -std=c99
 OBJ_PATH = ./objs/
 SRC_PATH = ./srcs/
 SRCS = $(addprefix $(SRC_PATH),$(SRC_PATH))
@@ -105,7 +105,7 @@ $(OBJ_PATH)%.o : $(SRC_PATH)%.c
 	@$(CC) $(CFLAGS) -c $^ -o $@ && $(call ui_line, $@, $(shell ls $(OBJ_PATH)*.o 2> /dev/null | wc -l))
 
 $(NAME:.a=.so): $(addprefix $(SRC_PATH),$(SRC_NAMES))
-	$(CC) $(CFLAGS_SHARED) -Wno-pointer-arith -pedantic $(addprefix $(SRC_PATH),*.c) -o libft.so
+	@$(CC) $(CFLAGS_SHARED) -Wno-pointer-arith -pedantic $(addprefix $(SRC_PATH),*.c) -o libft.so
 
 so: $(NAME:.a=.so)
 
