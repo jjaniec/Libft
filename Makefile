@@ -82,13 +82,13 @@ SRC_NAMES = ft_atoi.c \
 OBJS_NAMES = $(SRC_NAMES:.c=.o)
 NAME = libft.a
 CC = gcc
-CFLAGS = -Wall -Werror -Wextra -I. -std=c99
-CFLAGS_SHARED = -Wall -Werror -Wextra -I. -shared -fPIC -stp=c99
+CFLAGS = -Wall -Werror -Wextra -I.
+CFLAGS_SHARED = -Wall -Werror -Wextra -I. -shared -fPIC
 OBJ_PATH = ./objs/
 SRC_PATH = ./srcs/
 SRCS = $(addprefix $(SRC_PATH),$(SRC_PATH))
 OBJS = $(addprefix $(OBJ_PATH),$(SRC_NAMES:.c=.o))
-STATS_BAR = bash ./.makefile_status
+STATS_BAR = ./.makefile_status
 
 define ui_line
 	$(STATS_BAR) $(1) || true
@@ -104,8 +104,10 @@ $(OBJ_PATH)%.o : $(SRC_PATH)%.c
 	@mkdir $(OBJ_PATH) 2> /dev/null || true
 	@$(CC) $(CFLAGS) -c $^ -o $@ && $(call ui_line, $@, $(shell ls $(OBJ_PATH)*.o 2> /dev/null | wc -l))
 
-so: $(SRC_NAMES)
-	$(CC) $(CFLAGS_SHARED) $(SRC_NAMES) -I$(SRC_PATH) -o libft.so
+$(NAME:.a=.so): $(addprefix $(SRC_PATH),$(SRC_NAMES))
+	$(CC) $(CFLAGS_SHARED) -Wno-pointer-arith -pedantic $(addprefix $(SRC_PATH),*.c) -o libft.so
+
+so: $(NAME:.a=.so)
 
 clean:
 	@rm -rf $(OBJ_PATH) 2> /dev/null || true
@@ -115,4 +117,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: clean fclean all re so
+.PHONY: clean fclean all re so 
