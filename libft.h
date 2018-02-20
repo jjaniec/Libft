@@ -23,6 +23,10 @@
 #  define BUFF_SIZE 42
 # endif
 
+# if __STDC_VERSION__ < 199901L
+#  define restrict
+# endif
+
 typedef struct	s_list
 {
 	void			*content;
@@ -165,6 +169,6 @@ char			*ft_read_content(int fd);
 
 char			*ft_strjoin_free(char *s1, char *s2);
 
-char            *ft_strsub_free(char *s, unsigned int start, size_t len);
+char		*ft_strsub_free(char *s, unsigned int start, size_t len);
 
 #endif

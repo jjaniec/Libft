@@ -3,7 +3,7 @@ objs_count=$(ls ./objs/*.o | wc -l)
 
 bar_fill_char="="
 
-function star
+star ()
 {
     if [ $objs_count -ne $srcs_count ];
     then
