@@ -2,7 +2,7 @@ language: c
 sudo: true
 before_install:
     - brew update || sudo apt-get update -yqq
-    - brew install valgrind || sudo apt-get install -yqq valgrind
+    - brew install valgrind || sudo apt-get install -yqq valgrind libbsd-dev libncurses5-dev
     - git clone https://github.com/alelievr/libft-unit-test.git
     - sed -i.bak "s#\.\.\/libft\$#\.\.\/\.#" libft-unit-test/Makefile
 matrix:
