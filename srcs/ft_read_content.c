@@ -6,7 +6,7 @@
 /*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/28 15:16:18 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/02/01 12:18:47 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/02/20 14:55:23 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@
 ** size of ($BUFF_SIZE * $bufsize_multiplier) bytes
 */
 
-static char	*ft_resize_buf(int fd, char *buf, int *bufsize_multiplier, int *wrote)
+static char	*ft_resize_buf(int fd, char *buf, int *bufsize_multiplier,\
+	int *wrote)
 {
 	char	*buf2;
 
@@ -42,7 +43,7 @@ char		*ft_read_content(int fd)
 	multiplier = 1;
 	buf = (char *)malloc(sizeof(char) * BUFF_SIZE + 1);
 	x = read(fd, buf, BUFF_SIZE);
-	buf[x] ='\0';
+	buf[x] = '\0';
 	if (x < BUFF_SIZE)
 		return (buf);
 	while (x > 0)

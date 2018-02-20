@@ -102,10 +102,11 @@ $(NAME):$(OBJS)
 
 $(OBJ_PATH)%.o : $(SRC_PATH)%.c
 	@mkdir $(OBJ_PATH) 2> /dev/null || true
-	@$(CC) $(CFLAGS) -c $^ -o $@ && $(call ui_line, $@, $(shell ls $(OBJ_PATH)*.o 2> /dev/null | wc -l))
+	@$(CC) $(CFLAGS) -c $^ -o $@ && $(call ui_line, $@)
 
 $(NAME:.a=.so): $(addprefix $(SRC_PATH),$(SRC_NAMES))
-	@$(CC) $(CFLAGS_SHARED) -pedantic $(addprefix $(SRC_PATH),*.c) -o libft.so
+	@mkdir $(OBJ_PATH) 2> /dev/null || true
+	@$(CC) $(CFLAGS_SHARED) -pedantic $(addprefix $(SRC_PATH),*.c) -o libft.so && printf "\e[32mLibft.so created\e[39m"
 
 so: $(NAME:.a=.so)
 
@@ -117,4 +118,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: clean fclean all re so 
+.PHONY: clean fclean all re so
