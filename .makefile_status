@@ -1,35 +1,39 @@
+#!/bin/bash
 srcs_count=$(ls ./srcs/*.c | wc -l)
 objs_count=$(ls ./objs/*.o | wc -l)
 
+offset_name=25
 bar_fill_char="="
+bar_end_char=">"
 
-star ()
-{
-    if [ $objs_count -ne $srcs_count ];
-    then
-        printf "\033[K[\e[93m*\e[97m]";
-    else
-        printf "\033[K[\e[92m*\e[97m]";
-    fi;
-}
+arg="$1"
+arg_size=${#arg}
 
-if [ $objs_count -eq 1 ]; then printf "\nCompiling $2 ...\n\n\r"; fi;
-star
-printf "\t$1\t\t["
-for i in $(seq 1 $objs_count); do bar_fill_stats="$bar_fill_stats$bar_fill_char"; done;
-command -v lolcat > /dev/null
-if [ $? -eq 0 ];
+COL_YELLOW="\e[93m"
+COL_GREEN="\e[92m"
+COL_RESET="\e[97m"
+
+if [ $arg_size -gt $offset_name ];
 then
-    printf "$bar_fill_stats>" | lolcat -S 42;
-else
-    printf "$bar_fill_stats>"
+    arg="$(echo ${arg:0:$[$offset_name-3]})...";
 fi;
+
+if [ $objs_count -eq 1 ];
+then
+    printf "\nCompiling $2 ...\n\n\r";
+fi;
+
+for i in $(seq 1 $objs_count);
+do
+    bar_fill_stats="$bar_fill_stats$bar_fill_char";
+done;
 
 if [ $objs_count -ne $srcs_count ];
 then
-    for j in $(seq 1 $(($srcs_count-$objs_count))); do printf ' '; done;
+    printf "\033[K[$COL_YELLOW*$COL_RESET]\t%-*s[$COL_YELLOW%-*s$COL_RESET] - $objs_count/$srcs_count\r" $[$offset_name+5] $arg $[$srcs_count+1] "$bar_fill_stats>"
+else
+    printf "\033[K[$COL_GREEN*$COL_RESET]\t%-*s[$COL_GREEN%-*s$COL_RESET] - $objs_count/$srcs_count\r" $[$offset_name+5] $arg $srcs_count "$bar_fill_stats>"
 fi;
-printf "] - $objs_count/$srcs_count\r"
 
 if [ $objs_count -eq $srcs_count ];
 then
