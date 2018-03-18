@@ -13,7 +13,7 @@ star ()
     fi;
 }
 
-if [ $objs_count -eq 1 ]; then printf "\nCompiling libft ...\n\n\r"; fi;
+if [ $objs_count -eq 1 ]; then printf "\nCompiling $2 ...\n\n\r"; fi;
 star
 printf "\t$1\t\t["
 for i in $(seq 1 $objs_count); do bar_fill_stats="$bar_fill_stats$bar_fill_char"; done;
@@ -30,3 +30,8 @@ then
     for j in $(seq 1 $(($srcs_count-$objs_count))); do printf ' '; done;
 fi;
 printf "] - $objs_count/$srcs_count\r"
+
+if [ $objs_count -eq $srcs_count ];
+then
+    printf "\n\n";
+fi;

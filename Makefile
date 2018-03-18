@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+         #
+#    By: jjaniec <jjaniec@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/11 16:33:09 by jjaniec           #+#    #+#              #
-#    Updated: 2018/02/19 22:41:27 by jjaniec          ###   ########.fr        #
+#    Updated: 2018/03/18 20:14:14 by jjaniec          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -79,6 +79,7 @@ SRC_NAMES = ft_atoi.c \
 		   ft_strtrim.c \
 		   ft_tolower.c \
 		   ft_toupper.c
+
 OBJS_NAMES = $(SRC_NAMES:.c=.o)
 NAME = libft.a
 CC = gcc
@@ -91,22 +92,21 @@ OBJS = $(addprefix $(OBJ_PATH),$(SRC_NAMES:.c=.o))
 STATS_BAR = ./.makefile_status
 
 define ui_line
-	$(STATS_BAR) $(1) || true
+	$(STATS_BAR) $(1) $(2) || true
 endef
 
 all: $(NAME)
 
 $(NAME):$(OBJS)
-	@printf "\n\n\tCreating libft.a ...\r"
 	@ar rcs $(NAME) $(OBJS)
 
 $(OBJ_PATH)%.o : $(SRC_PATH)%.c
 	@mkdir $(OBJ_PATH) 2> /dev/null || true
-	@$(CC) $(CFLAGS) -c $^ -o $@ && $(call ui_line, $@)
+	@$(CC) $(CFLAGS) -c $^ -o $@ && $(call ui_line, $@, $(NAME))
 
 $(NAME:.a=.so): $(addprefix $(SRC_PATH),$(SRC_NAMES))
 	@mkdir $(OBJ_PATH) 2> /dev/null || true
-	@$(CC) $(CFLAGS_SHARED) -pedantic $(addprefix $(SRC_PATH),*.c) -o libft.so && printf "\e[32mLibft.so created\e[39m"
+	@$(CC) $(CFLAGS_SHARED) -pedantic $(addprefix $(SRC_PATH),*.c) -o libft.so
 
 so: $(NAME:.a=.so)
 
