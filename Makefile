@@ -6,7 +6,7 @@
 #    By: jjaniec <jjaniec@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/11 16:33:09 by jjaniec           #+#    #+#              #
-#    Updated: 2018/03/18 20:14:14 by jjaniec          ###   ########.fr        #
+#    Updated: 2018/03/24 01:10:09 by jjaniec          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,7 @@ SRC_NAMES = ft_atoi.c \
 		   ft_isalpha.c \
 		   ft_isascii.c \
 		   ft_isdigit.c \
+		   ft_init_ptr_list.c \
 		   ft_isprint.c \
 		   ft_itoa.c \
 		   ft_lstadd.c \

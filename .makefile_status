@@ -1,5 +1,12 @@
 #!/bin/bash
-srcs_count=$(ls ./srcs/*.c | wc -l)
+
+if [ -z $3 ];
+then
+    srcs_count=$(ls ./srcs/*.c | wc -l);
+else
+    srcs_count=$3;
+fi;
+
 objs_count=$(ls ./objs/*.o | wc -l)
 
 offset_name=25

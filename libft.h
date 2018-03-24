@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: jjaniec <jjaniec@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/11 17:15:39 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/02/20 14:54:43 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/03/24 01:07:21 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -166,5 +166,8 @@ char			*ft_read_content(int fd);
 char			*ft_strjoin_free(char *s1, char *s2);
 
 char			*ft_strsub_free(char *s, unsigned int start, size_t len);
+
+void			ft_init_ptr_list(int count, ...);
+
 
 #endif
