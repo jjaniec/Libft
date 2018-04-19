@@ -6,7 +6,7 @@
 /*   By: jjaniec <jjaniec@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/11 17:15:39 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/03/24 01:07:21 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/04/19 20:38:28 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -169,5 +169,6 @@ char			*ft_strsub_free(char *s, unsigned int start, size_t len);
 
 void			ft_init_ptr_list(int count, ...);
 
+void			ft_free_ptr_list(int count, ...);
 
 #endif

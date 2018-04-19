@@ -6,7 +6,7 @@
 #    By: jjaniec <jjaniec@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/11 16:33:09 by jjaniec           #+#    #+#              #
-#    Updated: 2018/03/24 01:10:09 by jjaniec          ###   ########.fr        #
+#    Updated: 2018/04/19 20:33:52 by jjaniec          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,6 +15,7 @@ SRC_NAMES = ft_atoi.c \
 		   ft_display_file.c \
 		   ft_div_mod.c \
 		   ft_foreach.c \
+		   ft_free_ptr_list.c \
 		   ft_isalnum.c \
 		   ft_isalpha.c \
 		   ft_isascii.c \
