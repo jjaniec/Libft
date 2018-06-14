@@ -2,12 +2,12 @@
 
 if [ -z $3 ];
 then
-    srcs_count=$(ls ./srcs/*.c | wc -l);
+    srcs_count=$(find srcs -type f | wc -l);
 else
     srcs_count=$3;
 fi;
 
-objs_count=$(ls ./objs/*.o | wc -l)
+objs_count=$(find objs -type f | wc -l)
 
 offset_name=25
 bar_fill_char="="
