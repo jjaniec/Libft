@@ -6,7 +6,7 @@
 #    By: jjaniec <jjaniec@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/11 16:33:09 by jjaniec           #+#    #+#              #
-#    Updated: 2018/04/19 21:20:57 by jjaniec          ###   ########.fr        #
+#    Updated: 2018/09/23 20:20:49 by jjaniec          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,6 +49,7 @@ SRC_NAMES = ft_atoi.c \
 		   ft_putstr_fd.c \
 		   ft_range.c \
 		   ft_read_content.c \
+		   ft_realloc.c \
 		   ft_recursive_factorial.c \
 		   ft_strcat.c \
 		   ft_str_capitalize.c \
@@ -92,7 +93,7 @@ OBJ_PATH = ./objs/
 SRC_PATH = ./srcs/
 SRCS = $(addprefix $(SRC_PATH),$(SRC_PATH))
 OBJS = $(addprefix $(OBJ_PATH),$(SRC_NAMES:.c=.o))
-STATS_BAR = ./.makefile_status
+STATS_BAR = ./.makefile_status.sh
 
 define ui_line
 	$(STATS_BAR) $(1) $(2) || true
