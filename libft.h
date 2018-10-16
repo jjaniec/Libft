@@ -6,7 +6,7 @@
 /*   By: jjaniec <jjaniec@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/11 17:15:39 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/09/23 20:22:08 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/10/16 19:42:38 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <fcntl.h>
 # include <stdio.h>
 # include <stdarg.h>
+# include <stdbool.h>
 
 # ifndef BUFF_SIZE
 #  define BUFF_SIZE 42
@@ -33,6 +34,8 @@ typedef struct	s_list
 void			*ft_memset(void *b, int c, size_t len);
 
 int				ft_atoi(const char *str);
+
+long long		ft_atoll(const char *str);
 
 void			ft_bzero(void *s, size_t n);
 
@@ -174,5 +177,17 @@ void			ft_free_ptr_list(int count, ...);
 void			ft_exit(int exit_value, const char *msg);
 
 void			*ft_realloc(void *ptr, size_t original_size, size_t new_size);
+
+void			*ft_xmalloc(size_t size);
+
+void			*ft_xrealloc(void *a, size_t b, size_t c);
+
+void			*ft_xmemalloc(size_t size);
+
+void			ft_free_2d_array(char **tabb);
+
+unsigned int	ft_count_elem_2d_array(char **array);
+
+bool			ft_str_is_positive_numeric(const char *str);
 
 #endif
