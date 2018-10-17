@@ -2,7 +2,7 @@ language: c
 sudo: true
 before_install:
     - brew update || sudo apt-get update -yqq
-    - brew install valgrind || sudo apt-get install -yqq valgrind libbsd-dev libncurses5-dev
+    - if [ "$TRAVIS_OS_NAME" = linux ]; then sudo apt-get install -yqq valgrind libbsd-dev libncurses5-dev; fi;
     - git clone https://github.com/alelievr/libft-unit-test.git
     - sed -i.bak "s#\.\.\/libft\$#\.\.\/\.#" libft-unit-test/Makefile
 matrix:
@@ -26,4 +26,4 @@ matrix:
         - os: linux
           compiler: clang
           env: CXX=clang
-script: if [ "$TRAVIS_OS_NAME" == "linux" ]; then make CC=$CXX so; fi; make -C libft-unit-test; cd libft-unit-test; cp ../libft.* .; valgrind ./run_test; ./run_test
+script: if [ "$TRAVIS_OS_NAME" = "linux" ]; then make CC=$CXX so; fi; make -C libft-unit-test; cd libft-unit-test; cp ../libft.* .; if [ "$TRAVIS_OS_NAME" = linux ]; then valgrind ./run_test; else ./run_test; fi;

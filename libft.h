@@ -6,7 +6,7 @@
 /*   By: jjaniec <jjaniec@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/11 17:15:39 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/10/16 19:42:38 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/10/17 16:24:33 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -189,5 +189,9 @@ void			ft_free_2d_array(char **tabb);
 unsigned int	ft_count_elem_2d_array(char **array);
 
 bool			ft_str_is_positive_numeric(const char *str);
+
+char			*ft_xstrdup(const char *s);
+
+char			*ft_xstrjoin(char const *s1, char const *s2);
 
 #endif
