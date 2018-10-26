@@ -6,7 +6,7 @@
 /*   By: jjaniec <jjaniec@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/11 17:15:39 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/10/17 16:24:33 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/10/26 14:56:05 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -193,5 +193,7 @@ bool			ft_str_is_positive_numeric(const char *str);
 char			*ft_xstrdup(const char *s);
 
 char			*ft_xstrjoin(char const *s1, char const *s2);
+
+char			*ft_xstrjoin_free(char *s1, char *s2);
 
 #endif

@@ -92,7 +92,8 @@ SRC_NAMES = ft_atoi.c \
 			ft_xrealloc.c \
 			ft_xstrdup.c \
 			ft_xstrnew.c \
-			ft_xstrjoin.c
+			ft_xstrjoin.c \
+			ft_xstrjoin_free.c
 
 OBJS_NAMES = $(SRC_NAMES:.c=.o)
 NAME = libft.a
