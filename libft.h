@@ -6,7 +6,7 @@
 /*   By: jjaniec <jjaniec@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/11 17:15:39 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/10/26 14:56:05 by jjaniec          ###   ########.fr       */
+/*   Updated: 2018/11/12 16:59:29 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,6 +127,9 @@ char			*ft_strjoin(char const *s1, char const *s2);
 char			*ft_strtrim(char const *s1);
 
 char			**ft_strsplit(char const *s, char c);
+
+char			**ft_strsplit_bystr(char const *s, \
+					const char *split);
 
 char			*ft_itoa(int n);
 
