@@ -6,7 +6,7 @@
 #    By: jjaniec <jjaniec@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/11 16:33:09 by jjaniec           #+#    #+#              #
-#    Updated: 2018/09/23 20:20:49 by jjaniec          ###   ########.fr        #
+#    Updated: 2018/10/22 14:23:06 by cyfermie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -98,8 +98,13 @@ SRC_NAMES = ft_atoi.c \
 OBJS_NAMES = $(SRC_NAMES:.c=.o)
 NAME = libft.a
 CC = gcc
-CFLAGS = -Wall -Werror -Wextra -I. -std=c99 -Wno-pointer-arith
-CFLAGS_SHARED = -Wall -Werror -Wextra -I. -shared -fPIC -std=c99 -Wno-pointer-arith
+
+#CFLAGS = -Wall -Werror -Wextra -I. -std=c99 -Wno-pointer-arith
+#CFLAGS_SHARED = -Wall -Werror -Wextra -I. -shared -fPIC -std=c99 -Wno-pointer-arith
+CFLAGS = -Wall -Wextra -Werror -I ./ -std=c11 -O3
+CFLAGS_SHARED = -Wall -Wextra -Werror -I ./ -std=c11 -O3
+
+
 OBJ_PATH = ./objs/
 SRC_PATH = ./srcs/
 SRCS = $(addprefix $(SRC_PATH),$(SRC_PATH))

@@ -10,20 +10,20 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include <strings.h>
+#include "../libft.h"
 
-char	*ft_strncat(char *s1, const char *s2, size_t n)
+char	*ft_strncat(char *dest, const char *src, size_t n)
 {
 	size_t	i;
-	size_t	j;
+	size_t	dest_len;
 
-	i = -1;
-	j = -1;
-	while (s1[++i] != '\0')
-		;
-	while (s2[++j] != '\0' && j < n)
-		s1[i++] = s2[j];
-	s1[i] = '\0';
-	return (s1);
+	dest_len = ft_strlen(dest);
+	i = 0;
+	while (i < n && src[i] != '\0')
+	{
+		dest[dest_len + i] = src[i];
+		++i;
+	}
+	dest[dest_len + i] = '\0';
+	return (dest);
 }
