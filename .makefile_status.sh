@@ -59,28 +59,35 @@ function    print_compiled_filename
 
 function    progress_bar
 {
-    chars_per_percent=$(echo "( ${bar_size} - 2 ) / 100" | bc -l );
-
-    if [ ${srcs_count} -ne ${objs_count} ];
+    if [ ${command_bc} -eq 0 ];
     then
+      chars_per_percent=$(echo "( ${bar_size} - 2 ) / 100" | bc -l );
+
+	    if [ ${srcs_count} -ne ${objs_count} ];
+    	then
         chars_to_print=$(echo "( ${chars_per_percent} * ${1} ) - 0.5" | bc -l )
         chars_to_print=$(printf "%.0f" "${chars_to_print}")
         tmp_progress_bar=$(printf "%${chars_to_print}s")
-
         printf "[${COL_YELLOW}${tmp_progress_bar// /${bar_fill_char}}%*s%*s${COL_RESET}]" 1 ${bar_end_char} $( echo "((${bar_size} - 2) - ${chars_to_print})" | bc -l ) " "
-    else
+    	else
         bar_size=$[${bar_size} - 2]
         tmp_progress_bar=$(printf "%${bar_size}s")
 
         printf "[${COL_GREEN}${tmp_progress_bar// /${bar_fill_char}}>${COL_RESET}]"
+    	fi;
     fi;
-
 }
 
 function    comp_percentage
 {
-    printf ${PERCENTAGE_FMT} ${percent_size} ${1}
+    if [ ${1} -gt 1 ];
+    then
+        printf ${PERCENTAGE_FMT} ${percent_size} ${1}
+    fi;
 }
+
+command -v bc > /dev/null 2> /dev/null
+command_bc=$?
 
 if [ 1 -eq ${objs_count} ];
 then
@@ -100,7 +107,13 @@ then
 fi;
 
 print_compiled_filename #
-percentage=$(printf "%.0f" $( echo "${objs_count} / ${srcs_count} * 100" | bc -l))
+
+if [ ${command_bc} -eq 0 ];
+then
+    percentage=$(printf "%.0f" $( echo "${objs_count} / ${srcs_count} * 100" | bc -l))
+else
+    percentage=-1;
+fi;
 progress_bar ${percentage} #
 comp_percentage ${percentage} #
 
