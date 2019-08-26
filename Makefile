@@ -6,7 +6,7 @@
 #    By: jjaniec <jjaniec@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/11 16:33:09 by jjaniec           #+#    #+#              #
-#    Updated: 2018/11/12 16:55:11 by jjaniec          ###   ########.fr        #
+#    Updated: 2019/08/26 20:38:04 by jjaniec          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,7 +51,7 @@ SRC_NAMES = ft_atoi.c \
 			ft_putstr_fd.c \
 			ft_range.c \
 			ft_read_content.c \
-			ft_realloc.c \
+			ft_realloc2.c \
 			ft_recursive_factorial.c \
 			ft_str_capitalize.c \
 			ft_str_is_positive_numeric.c \
