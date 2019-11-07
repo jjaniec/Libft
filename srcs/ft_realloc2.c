@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_realloc.c                                       :+:      :+:    :+:   */
+/*   ft_realloc2.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jjaniec <jjaniec@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/23 20:21:20 by jjaniec           #+#    #+#             */
-/*   Updated: 2019/08/26 20:37:25 by jjaniec          ###   ########.fr       */
+/*   Updated: 2019/11/07 19:26:38 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 
-void *ft_realloc2(void *ptr, size_t original_size, size_t new_size)
+void		*ft_realloc2(void *ptr, size_t original_size, size_t new_size)
 {
 	void *new;
 
