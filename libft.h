@@ -169,7 +169,7 @@ int					ft_strichr(const char *s, char c);
 
 char				*ft_str_capitalize(char *s);
 
-char				*ft_read_content(int fd);
+char				*ft_read_content(int fd, int *read_total);
 
 char				*ft_strjoin_free(char *s1, char *s2);
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_read_content.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jjaniec <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: jjaniec <jjaniec@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/28 15:16:18 by jjaniec           #+#    #+#             */
-/*   Updated: 2018/10/16 17:45:24 by cyfermie         ###   ########.fr       */
+/*   Updated: 2019/11/30 17:27:05 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,23 @@
 ** size of ($BUFF_SIZE * $bufsize_multiplier) bytes
 */
 
-static char	*ft_resize_buf(int fd, char *buf, int *bufsize_multiplier,
-							int *wrote)
+static int	ft_resize_buf(int fd, char **buf, int *bufsize_multiplier,
+							int *total_len)
 {
 	char	*buf2;
+	int		buf2_len;
+	char	*new_buf;
 
-	buf2 = malloc(42 * (*bufsize_multiplier) + 1);
-	*wrote = read(fd, buf2, 42 * (*bufsize_multiplier));
-	buf2[*wrote] = '\0';
-	*bufsize_multiplier = *bufsize_multiplier + 1;
-	return (ft_strjoin_free(buf, buf2));
+	buf2 = malloc(42 * (*bufsize_multiplier));
+	buf2_len = read(fd, buf2, 42 * (*bufsize_multiplier));
+	new_buf = malloc(sizeof(char) * (*total_len + buf2_len));
+	ft_memcpy(new_buf, *buf, *total_len);
+	ft_memcpy(new_buf + *total_len, buf2, buf2_len);
+	*total_len += buf2_len;
+	free(buf2);
+	free(*buf);
+	*buf = new_buf;
+	return (buf2_len == 42 * (*bufsize_multiplier));
 }
 
 /*
@@ -34,19 +41,24 @@ static char	*ft_resize_buf(int fd, char *buf, int *bufsize_multiplier,
 ** and store it in a malloc'ed char *
 */
 
-char		*ft_read_content(int fd)
+char		*ft_read_content(int fd, int *read_total)
 {
 	char	*buf;
 	int		x;
 	int		multiplier;
 
 	multiplier = 1;
-	buf = malloc(42 + 1);
+	buf = malloc(42);
 	x = read(fd, buf, 42);
-	buf[x] = '\0';
+	*read_total = x;
 	if (x < 42)
 		return (buf);
-	while (x > 0)
-		buf = ft_resize_buf(fd, buf, &multiplier, &x);
+	while (1)
+	{
+		multiplier++;
+		if (!ft_resize_buf(fd, &buf, &multiplier, &x))
+			break ;
+	}
+	*read_total = x;
 	return (buf);
 }
