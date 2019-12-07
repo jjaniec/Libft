@@ -24,6 +24,10 @@
 #  define BUFF_SIZE 42
 # endif
 
+# ifndef FT_READ_CONTENT_BUFF_SIZE
+#  define FT_READ_CONTENT_BUFF_SIZE 42000
+# endif
+
 typedef struct		s_list
 {
 	void			*content;
