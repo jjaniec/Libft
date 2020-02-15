@@ -6,7 +6,7 @@
 /*   By: jjaniec <jjaniec@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/28 15:16:18 by jjaniec           #+#    #+#             */
-/*   Updated: 2019/12/07 19:16:12 by jjaniec          ###   ########.fr       */
+/*   Updated: 2020/02/15 15:02:16 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,11 @@ char		*ft_read_content(int fd, int *read_total)
 
 	multiplier = 1;
 	buf = malloc(FT_READ_CONTENT_BUFF_SIZE);
-	x = read(fd, buf, FT_READ_CONTENT_BUFF_SIZE);
+	if ((x = read(fd, buf, FT_READ_CONTENT_BUFF_SIZE)) == -1)
+	{
+		free(buf);
+		return (NULL);
+	}
 	*read_total = x;
 	if (x < FT_READ_CONTENT_BUFF_SIZE)
 		return (buf);
