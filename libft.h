@@ -6,7 +6,7 @@
 /*   By: jjaniec <jjaniec@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/11 17:15:39 by jjaniec           #+#    #+#             */
-/*   Updated: 2019/11/07 19:32:17 by jjaniec          ###   ########.fr       */
+/*   Updated: 2020/04/03 18:00:59 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,6 +99,8 @@ int					ft_isprint(int c);
 char				*ft_itoa(int c);
 
 char				*ft_itoa_base(int c, unsigned int base);
+
+int					ft_int_index(int *arr, unsigned int arr_size, int elem);
 
 int					ft_toupper(int c);
 

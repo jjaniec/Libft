@@ -6,7 +6,7 @@
 #    By: jjaniec <jjaniec@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/11 16:33:09 by jjaniec           #+#    #+#              #
-#    Updated: 2019/09/18 15:39:39 by jjaniec          ###   ########.fr        #
+#    Updated: 2020/04/03 17:55:59 by jjaniec          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,6 +28,7 @@ SRC_NAMES = ft_atoi.c \
 			ft_isprint.c \
 			ft_itoa.c \
 			ft_itoa_base.c \
+			ft_int_index.c \
 			ft_lstadd.c \
 			ft_lstdel.c \
 			ft_lstdelone.c \
