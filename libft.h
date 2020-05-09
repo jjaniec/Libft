@@ -6,7 +6,7 @@
 /*   By: jjaniec <jjaniec@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/11 17:15:39 by jjaniec           #+#    #+#             */
-/*   Updated: 2020/04/03 18:00:59 by jjaniec          ###   ########.fr       */
+/*   Updated: 2020/04/25 19:55:57 by jjaniec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,8 @@ void				*ft_memmove(void *dst, const void *src, size_t len);
 void				*ft_memchr(const void *s, int c, size_t n);
 
 int					ft_memcmp(const void *s1, const void *s2, size_t n);
+
+int					*ft_range(int min, int max);
 
 size_t				ft_strlen(const char *s);
 
